@@ -2,8 +2,8 @@
 var home = ["home"];
 
 for (var i = 0; i < home.length; ++i) {
-    run("server.script", serv, 1);
-    run("hacknet.script", serv, 1);
+    run("purchase-server-8gb.script", serv, 1);
+    run("hacknet-upgrade.script", serv, 1);
 }
 
 //Hacking noodles in addition to other servers
@@ -12,9 +12,9 @@ var noodles = ["n00dles"];
 for (var i = 0; i < noodles.length; ++i) {
     var serv = noodles[i];
 
-    scp("hack.script", serv);
+    scp("easy-hack-template.script", serv);
     nuke(serv);
-    exec("hack.script", serv, 1);
+    exec("easy-hack-template.script", serv, 1);
 }
 
 // Array of all servers that don't need any ports opened
@@ -32,9 +32,9 @@ var servers0Port = ["sigma-cosmetics",
 for (var i = 0; i < servers0Port.length; ++i) {
     var serv = servers0Port[i];
 
-    scp("hack.script", serv);
+    scp("easy-hack-template.script", serv);
     nuke(serv);
-    exec("hack.script", serv, 6);
+    exec("easy-hack-template.script", serv, 6);
 }
 
 
@@ -57,10 +57,10 @@ while (!fileExists("BruteSSH.exe")) {
 for (var i = 0; i < servers1Port.length; ++i) {
     var serv = servers1Port[i];
 
-    scp("hack.script", serv);
+    scp("easy-hack-template.script", serv);
     brutessh(serv);
     nuke(serv);
-    exec("hack.script", serv, 12);
+    exec("easy-hack-template.script", serv, 12);
 }
 
 //Hacking and installing a backdoor into CSEC, fulfilling a questline
@@ -69,9 +69,9 @@ var csec = ["CSEC"];
 for (var i = 0; i < csec.length; ++i) {
     var serv = csec[i];
 
-    scp("hack.script", serv)
+    scp("easy-hack-template.script", serv)
     brutessh(serv);
     nuke(serv);
-    exec("hack.script", serv, 3);
+    exec("easy-hack-template.script", serv, 3);
     installBackdoor(serv);
 }
