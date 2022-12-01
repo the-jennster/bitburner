@@ -92,11 +92,11 @@ while (!fileExists("FTPCrack.exe")) {
 for (var i = 0; i < servers2Ports.length; ++i) {
     var serv = servers2Ports[i];
 
-    scp("early-hack-template.script.script", serv);
+    scp("early-hack-template.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("early-hack-template.script.script", serv, 12);
+    exec("early-hack-template.script", serv, 12);
 }
 
 //"silver-helix" has a larger server, so we have to run that one separately
