@@ -75,3 +75,37 @@ for (var i = 0; i < csec.length; ++i) {
     exec("easy-hack-template.script", serv, 3);
     installBackdoor(serv);
 }
+
+//Array of servers that have 2 ports and 32gb (can hold 12 threads)
+var servers2Ports = ["phantasy",
+                     "omega-net",]
+
+//Wait until we get the "FTPCrack.exe" program
+while (!fileExists("FTPCrack.exe")) {
+    sleep(60000);
+}
+
+//Copy scripts onto servers that have 2 ports
+for (var i = 0; i < servers2Ports.length; ++i) {
+    var serv = servers2Ports[i];
+
+    scp("easy-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    nuke(serv);
+    exec("easy-hack-template.script", serv, 12);
+}
+
+//"silver-helix" has a larger server, so we have to run that one separately
+var silver = ["silver-helix"]
+
+//This server has 64gb, which means it can run 24 scripts
+for (var i = 0; i < silver.length; ++i) {
+    var serv = silver[i];
+
+    scp("easy-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    nuke(serv);
+    exec("easy-hack-template.script", serv, 24);
+}
