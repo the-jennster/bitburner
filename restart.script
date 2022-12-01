@@ -12,14 +12,15 @@ var noodles = ["n00dles"];
 for (var i = 0; i < noodles.length; ++i) {
     var serv = noodles[i];
 
-    scp("easy-hack-template.script", serv);
+    scp("early-hack-template.script", serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 1);
+    exec("early-hack-template.script", serv, 1);
 }
 
 // Array of all servers that don't need any ports opened
 // to gain root access. These have 16 GB of RAM
-var servers0Port = ["sigma-cosmetics",
+var servers0Port = ["foodnstuff",
+                    "sigma-cosmetics",
                     "joesguns",
                     "nectar-net",
                     "hong-fang-tea",
@@ -32,11 +33,10 @@ var servers0Port = ["sigma-cosmetics",
 for (var i = 0; i < servers0Port.length; ++i) {
     var serv = servers0Port[i];
 
-    scp("easy-hack-template.script", serv);
+    scp("early-hack-template.script", serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 6);
+    exec("early-hack-template.script", serv, 6);
 }
-
 
 // Array of all servers that only need 1 port opened
 // to gain root access. These have 32 GB of RAM
@@ -47,6 +47,9 @@ var servers1Port = ["neo-net",
 
 
 // Wait until we acquire the "BruteSSH.exe" program
+while (!getHackingLevel("50")) {
+    tprint("Brute program can be created");
+} 
 while (!fileExists("BruteSSH.exe")) {
     sleep(60000);
 }
@@ -57,23 +60,23 @@ while (!fileExists("BruteSSH.exe")) {
 for (var i = 0; i < servers1Port.length; ++i) {
     var serv = servers1Port[i];
 
-    scp("easy-hack-template.script", serv);
+    scp("early-hack-template.script", serv);
     brutessh(serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 12);
+    exec("early-hack-template.script", serv, 12);
 }
 
-//Hacking and installing a backdoor into CSEC, fulfilling a questline
+//CSEC has a smaller server than others with its ports
 var csec = ["CSEC"];
 
 for (var i = 0; i < csec.length; ++i) {
     var serv = csec[i];
 
-    scp("easy-hack-template.script", serv)
+    scp("early-hack-template.script", serv)
     brutessh(serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 3);
-    installBackdoor(serv);
+    exec("early-hack-template.script", serv, 3);
+    tprint("Cyber Sec can now be backdoored")
 }
 
 //Array of servers that have 2 ports and 32gb (can hold 12 threads)
@@ -89,11 +92,11 @@ while (!fileExists("FTPCrack.exe")) {
 for (var i = 0; i < servers2Ports.length; ++i) {
     var serv = servers2Ports[i];
 
-    scp("easy-hack-template.script", serv);
+    scp("early-hack-template.script.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 12);
+    exec("early-hack-template.script.script", serv, 12);
 }
 
 //"silver-helix" has a larger server, so we have to run that one separately
@@ -103,9 +106,124 @@ var silver = ["silver-helix"]
 for (var i = 0; i < silver.length; ++i) {
     var serv = silver[i];
 
-    scp("easy-hack-template.script", serv);
+    scp("early-hack-template.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("easy-hack-template.script", serv, 24);
+    exec("early-hack-template.script", serv, 24);
+}
+
+//Wait for the scanner to reach deeper levels
+while (!fileExists("DeepscanV1.exe")) {
+    sleep(60000);
+}
+
+//Deeper servers that can be accessed through 2 ports all have different gb storage
+//so we'll have to run them individually like we have for others
+
+//The Hub has 64gb, which means it can run 24 threads
+var hub = ["the-hub"]
+
+for (var i = 0; i < hub.length; ++i) {
+    var serv = hub[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 24);
+}
+
+//Johnson Ortho and Crush Fitness both have empty servers, so we'll just be opening them
+var emptyServers2 = ["johnson-ortho",
+                     "crush-fitness"]
+
+for (var i = 0; i < emptyServers2.length; ++i) {
+    var serv = emptyServers2[i];
+
+    brutessh(serv);
+    ftpcrack(serv);
+    nuke(serv);
+}
+
+//Nite Sec is the second faction to join, so this will also be followed by a printed message
+var nitesec = ["avmnite-02h"]
+
+for (var i = 0; i < nitesec.length; ++i) {
+    var serv = nitesec[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 12);
+    tprint("NiteSec can now be backdoored");
+}
+
+
+//We need to wait for the third port cracking program to be made
+while (!getHackingLevel("250")) {
+    tprint("Relay program can be created");
+}
+
+while (!fileExists("relaySMTP.exe")) {
+    sleep(60000);
+}
+
+//The Black Hand's server has 256gb, which is enough room for *98* threads
+//They're also another faction, so you'll backdoor them as well once you've nuked them
+var blackhand = ["I.I.I.I"];
+
+for (var i = 0; i < blackhand.length; ++i) {
+    var serv = blackhand[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 98);
+    tprint("Black Hand can now be backdoored");
+}
+
+//Rothman Uni has 128gb, which is  49 threads
+var rothman = ["rothman-uni"];
+
+for (var i = 0; i < rothman.length; ++i) {
+    var serv = rothman[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 49);
+}
+
+//Summit Uni and Netlink only have 16gb, which brings us back down to 6 threads
+//But you'll need to open up Computek, which has no server space, first
+var computek = ["computek"];
+
+for (var i = 0; i < computek.length; ++i) {
+    var serv = computek[i];
+
+    brutessh(sevr);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+}
+
+var servers3Port = ["summit",
+                    "netlink",
+                    "catalyst"];
+
+for (var i = 0; i < servers3Port.length; ++i) {
+    var serv = servers3Port[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 6);
 }
