@@ -227,3 +227,162 @@ for (var i = 0; i < servers3Port.length; ++i) {
     nuke(serv);
     exec("early-hack-template.script", serv, 6);
 }
+
+//Wait for the scanner to reach deeper levels
+while (!fileExists("DeepscanV2.exe")) {
+    sleep(60000);
+}
+
+while (!fileExists("HTTPWorm.exe")) {
+    sleep(60000);
+}
+
+//new servers behind 3 ports
+//millenium-fitness has 128gb
+var mill = ["millenium-fitness"];
+
+for (var i = 0; i < mill.length; ++i) {
+    var serv = mill[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 49);
+}
+//rho-construction has 16gb
+var rho = ["rho-construction"];
+
+for (var i = 0; i < rho.length; ++i) {
+    var serv = rho[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 6);
+}
+
+//Servers behind 4 ports
+//alpha-ent and univ-energy have 32gb
+var servers4Port32gb = ["alpha-ent",
+                        "univ-energy"];
+
+for (var i = 0; i < servers4Port32gb.length; ++i) {
+    var serv = servers4Port32gb[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 12);
+}
+//syscore, unitalife, nova-med, snap-fitness, and zb-def have 0gb
+var servers4Port = ["syscore",
+                    "unitalife",
+                    "nova-med",
+                    "snap-fitness",
+                    "zb-def"];
+
+for (var i = 0; i < servers4Port.length; ++i) {
+    var serv = servers4Port[i];
+
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+}
+//lexo-corp has 128gb
+var lexo = ["lexo-corp"];
+
+for (var i = 0; i < lexo.length; ++i) {
+    var serv = lexo[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 49);
+}
+//global-pharm has 8gb
+var global = ["global-pharm"];
+
+for (var i = 0; i < global.length; ++i) {
+    var serv = global[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 3);
+}
+//aevum-police has 64gb
+var aevum = ["aevum-police"];
+
+for (var i = 0; i < aevum.length; ++i) {
+    var serv = aevum[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 24);
+}
+
+while (!fileExists("SQLInject.exe")) {
+    sleep(60000);
+}
+
+//Servers behind 5 ports
+//0gb: galactic-cyber, aerocorp, defcomm, icarus, taiyang-digital, zeus-med, delta-one
+//    infocomm
+var servers5Port = ["galactic-cyber",
+                    "aerocorp",
+                    "defcomm",
+                    "icarus",
+                    "taiyang-digital",
+                    "zeus-med",
+                    "delta-one",
+                    "infocomm"];
+
+for (var i = 0; i < servers5Port.length; ++i) {
+    var serv = servers5Port[i];
+
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+}
+//16 gb (6): zb-institute, solaris
+var servers5Port16gb = ["zb-institute",
+                        "solaris"];
+
+for (var i = 0; i < servers5Port16gb.length; ++i) {
+    var serv = servers5Port16gb[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 6);
+}
+//32 gb (12): omnia
+var omnia = ["omnia"];
+
+for (var i = 0; i < omnia.length; ++i) {
+    var serv = omnia[i];
+
+    scp("early-hack-template.script", serv);
+    brutessh(serv);
+    ftpcrack(serv);
+    relaysmtp(serv);
+    nuke(serv);
+    exec("early-hack-template.script", serv, 12);
+}
