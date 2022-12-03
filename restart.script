@@ -267,8 +267,8 @@ for (var i = 0; i < rho.length; ++i) {
 
 //Servers behind 4 ports
 //alpha-ent and univ-energy have 32gb
-var servers4Port32gb = ["alpha-ent",
-                        "univ-energy"];
+var servers4Port32gb = ["alpha-ent", 
+                        "univ-energy"]; 
 
 for (var i = 0; i < servers4Port32gb.length; ++i) {
     var serv = servers4Port32gb[i];
@@ -277,15 +277,16 @@ for (var i = 0; i < servers4Port32gb.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 12);
 }
 //syscore, unitalife, nova-med, snap-fitness, and zb-def have 0gb
-var servers4Port = ["syscore",
-                    "unitalife",
-                    "nova-med",
+var servers4Port = ["syscore", 
+                    "unitalife", 
+                    "nova-med", 
                     "snap-fitness",
-                    "zb-def"];
+                    "zb-def"]; 
 
 for (var i = 0; i < servers4Port.length; ++i) {
     var serv = servers4Port[i];
@@ -293,6 +294,7 @@ for (var i = 0; i < servers4Port.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
 }
 //lexo-corp has 128gb
@@ -305,6 +307,7 @@ for (var i = 0; i < lexo.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 49);
 }
@@ -318,6 +321,7 @@ for (var i = 0; i < global.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 3);
 }
@@ -331,6 +335,7 @@ for (var i = 0; i < aevum.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 24);
 }
@@ -357,6 +362,7 @@ for (var i = 0; i < servers5Port.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
 }
 //16 gb (6): zb-institute, solaris
@@ -370,6 +376,7 @@ for (var i = 0; i < servers5Port16gb.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 6);
 }
@@ -383,6 +390,7 @@ for (var i = 0; i < omnia.length; ++i) {
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
+    httpworm(serv);
     nuke(serv);
     exec("early-hack-template.script", serv, 12);
 }
