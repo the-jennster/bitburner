@@ -2,8 +2,8 @@
 var home = ["home"];
 
 for (var i = 0; i < home.length; ++i) {
-    run("purchase-server-8gb.script", serv, 1);
-    run("hacknet-upgrade.script", serv, 1);
+    run("server.script", serv, 1);
+    run("hacknet.script", serv, 1);
 }
 
 //Hacking noodles in addition to other servers
@@ -12,9 +12,9 @@ var noodles = ["n00dles"];
 for (var i = 0; i < noodles.length; ++i) {
     var serv = noodles[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 1);
+    exec("hack.script", serv, 1);
 }
 
 // Array of all servers that don't need any ports opened
@@ -33,9 +33,9 @@ var servers0Port = ["foodnstuff",
 for (var i = 0; i < servers0Port.length; ++i) {
     var serv = servers0Port[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 6);
+    exec("hack.script", serv, 6);
 }
 
 // Array of all servers that only need 1 port opened
@@ -60,10 +60,10 @@ while (!fileExists("BruteSSH.exe")) {
 for (var i = 0; i < servers1Port.length; ++i) {
     var serv = servers1Port[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 12);
+    exec("hack.script", serv, 12);
 }
 
 //CSEC has a smaller server than others with its ports
@@ -72,10 +72,10 @@ var csec = ["CSEC"];
 for (var i = 0; i < csec.length; ++i) {
     var serv = csec[i];
 
-    scp("early-hack-template.script", serv)
+    scp("hack.script", serv)
     brutessh(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 3);
+    exec("hack.script", serv, 3);
     tprint("Cyber Sec can now be backdoored")
 }
 
@@ -92,11 +92,11 @@ while (!fileExists("FTPCrack.exe")) {
 for (var i = 0; i < servers2Ports.length; ++i) {
     var serv = servers2Ports[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 12);
+    exec("hack.script", serv, 12);
 }
 
 //"silver-helix" has a larger server, so we have to run that one separately
@@ -106,11 +106,11 @@ var silver = ["silver-helix"]
 for (var i = 0; i < silver.length; ++i) {
     var serv = silver[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 24);
+    exec("hack.script", serv, 24);
 }
 
 //Wait for the scanner to reach deeper levels
@@ -127,11 +127,11 @@ var hub = ["the-hub"]
 for (var i = 0; i < hub.length; ++i) {
     var serv = hub[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 24);
+    exec("hack.script", serv, 24);
 }
 
 //Johnson Ortho and Crush Fitness both have empty servers, so we'll just be opening them
@@ -152,11 +152,11 @@ var nitesec = ["avmnite-02h"]
 for (var i = 0; i < nitesec.length; ++i) {
     var serv = nitesec[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 12);
+    exec("hack.script", serv, 12);
     tprint("NiteSec can now be backdoored");
 }
 
@@ -177,12 +177,12 @@ var blackhand = ["I.I.I.I"];
 for (var i = 0; i < blackhand.length; ++i) {
     var serv = blackhand[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 98);
+    exec("hack.script", serv, 98);
     tprint("Black Hand can now be backdoored");
 }
 
@@ -192,12 +192,12 @@ var rothman = ["rothman-uni"];
 for (var i = 0; i < rothman.length; ++i) {
     var serv = rothman[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 49);
+    exec("hack.script", serv, 49);
 }
 
 //Summit Uni and Netlink only have 16gb, which brings us back down to 6 threads
@@ -220,12 +220,12 @@ var servers3Port = ["summit",
 for (var i = 0; i < servers3Port.length; ++i) {
     var serv = servers3Port[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 6);
+    exec("hack.script", serv, 6);
 }
 
 //Wait for the scanner to reach deeper levels
@@ -244,12 +244,12 @@ var mill = ["millenium-fitness"];
 for (var i = 0; i < mill.length; ++i) {
     var serv = mill[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 49);
+    exec("hack.script", serv, 49);
 }
 //rho-construction has 16gb
 var rho = ["rho-construction"];
@@ -257,12 +257,12 @@ var rho = ["rho-construction"];
 for (var i = 0; i < rho.length; ++i) {
     var serv = rho[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 6);
+    exec("hack.script", serv, 6);
 }
 
 //Servers behind 4 ports
@@ -273,13 +273,13 @@ var servers4Port32gb = ["alpha-ent",
 for (var i = 0; i < servers4Port32gb.length; ++i) {
     var serv = servers4Port32gb[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 12);
+    exec("hack.script", serv, 12);
 }
 //syscore, unitalife, nova-med, snap-fitness, and zb-def have 0gb
 var servers4Port = ["syscore", 
@@ -303,13 +303,13 @@ var lexo = ["lexo-corp"];
 for (var i = 0; i < lexo.length; ++i) {
     var serv = lexo[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 49);
+    exec("hack.script", serv, 49);
 }
 //global-pharm has 8gb
 var global = ["global-pharm"];
@@ -317,13 +317,13 @@ var global = ["global-pharm"];
 for (var i = 0; i < global.length; ++i) {
     var serv = global[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 3);
+    exec("hack.script", serv, 3);
 }
 //aevum-police has 64gb
 var aevum = ["aevum-police"];
@@ -331,13 +331,13 @@ var aevum = ["aevum-police"];
 for (var i = 0; i < aevum.length; ++i) {
     var serv = aevum[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 24);
+    exec("hack.script", serv, 24);
 }
 
 while (!fileExists("SQLInject.exe")) {
@@ -372,13 +372,13 @@ var servers5Port16gb = ["zb-institute",
 for (var i = 0; i < servers5Port16gb.length; ++i) {
     var serv = servers5Port16gb[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 6);
+    exec("hack.script", serv, 6);
 }
 //32 gb (12): omnia
 var omnia = ["omnia"];
@@ -386,11 +386,11 @@ var omnia = ["omnia"];
 for (var i = 0; i < omnia.length; ++i) {
     var serv = omnia[i];
 
-    scp("early-hack-template.script", serv);
+    scp("hack.script", serv);
     brutessh(serv);
     ftpcrack(serv);
     relaysmtp(serv);
     httpworm(serv);
     nuke(serv);
-    exec("early-hack-template.script", serv, 12);
+    exec("hack.script", serv, 12);
 }
